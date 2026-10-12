@@ -41,6 +41,7 @@ dotnet vpk pack `
     --packVersion $Version `
     --packDir $publish `
     --mainExe BearMinVLC.exe `
+    --runtime win-x64 `
     --packTitle BearMinVLC `
     --packAuthors 'Lucas Berndt' `
     --icon src/BearMinVLC/Assets/BearMinVLC.ico `
