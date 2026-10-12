@@ -12,7 +12,9 @@ param(
     [Parameter(Mandatory)][string]$Version,
     [string]$Notes = ""
 )
-$ErrorActionPreference = 'Stop'
+# Native tools report failure through exit codes (checked below); Windows PowerShell would otherwise
+# turn their harmless stderr chatter into terminating errors.
+$ErrorActionPreference = 'Continue'
 $root = Split-Path $PSScriptRoot -Parent
 Set-Location $root
 
@@ -31,7 +33,7 @@ if ($LASTEXITCODE) { throw 'publish failed' }
 
 # Fetch the previous release so Velopack can build a small delta update instead of a full download.
 New-Item -ItemType Directory -Force $releases | Out-Null
-dotnet vpk download github --repoUrl $repo -o $releases 2>$null
+dotnet vpk download github --repoUrl $repo -o $releases
 if ($LASTEXITCODE) { Write-Host 'No previous release found; this one ships full packages only.' }
 
 dotnet vpk pack `
