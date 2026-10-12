@@ -1,0 +1,78 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="BearMinVLC.App"
+             Name="BearMinVLC"
+             RequestedThemeVariant="Dark">
+  <Application.Resources>
+    <!-- Colour tokens (design: Style & behaviour guide) -->
+    <Color x:Key="GroundColor">#0C0B0A</Color>
+    <SolidColorBrush x:Key="Ground" Color="#0C0B0A" />
+    <SolidColorBrush x:Key="Surface" Color="#1A1917" />
+    <SolidColorBrush x:Key="Overlay" Color="#EB1A1917" />
+    <SolidColorBrush x:Key="Text" Color="#EDEBE7" />
+    <SolidColorBrush x:Key="Muted" Color="#A8A29E" />
+    <SolidColorBrush x:Key="MutedOnVideo" Color="#CFCAC4" />
+    <SolidColorBrush x:Key="Accent" Color="#F5A524" />
+    <SolidColorBrush x:Key="AccentHover" Color="#F7B547" />
+    <SolidColorBrush x:Key="Line" Color="#14FFFFFF" />
+    <SolidColorBrush x:Key="Hover" Color="#0FFFFFFF" />
+    <SolidColorBrush x:Key="Pressed" Color="#24FFFFFF" />
+    <SolidColorBrush x:Key="GhostBorder" Color="#24FFFFFF" />
+
+    <!-- Fluent controls (toggles, text selection, focus rings) use amber instead of the Windows accent -->
+    <Color x:Key="SystemAccentColor">#F5A524</Color>
+    <Color x:Key="SystemAccentColorDark1">#E0941A</Color>
+    <Color x:Key="SystemAccentColorDark2">#C47F12</Color>
+    <Color x:Key="SystemAccentColorDark3">#A86B0C</Color>
+    <Color x:Key="SystemAccentColorLight1">#F7B547</Color>
+    <Color x:Key="SystemAccentColorLight2">#F9C56D</Color>
+    <Color x:Key="SystemAccentColorLight3">#FBD593</Color>
+
+    <!-- Dropdown list rows -->
+    <SolidColorBrush x:Key="ComboBoxItemBackgroundSelected" Color="#3A362F" />
+    <SolidColorBrush x:Key="ComboBoxItemBackgroundSelectedPointerOver" Color="#44403A" />
+    <SolidColorBrush x:Key="ComboBoxItemBackgroundSelectedPressed" Color="#44403A" />
+    <SolidColorBrush x:Key="ComboBoxItemForegroundSelected" Color="#FFFFFF" />
+    <SolidColorBrush x:Key="ComboBoxItemForegroundSelectedPointerOver" Color="#FFFFFF" />
+
+    <FontFamily x:Key="Geist">avares://BearMinVLC/Assets/Fonts#Geist</FontFamily>
+    <FontFamily x:Key="GeistMono">avares://BearMinVLC/Assets/Fonts#Geist Mono</FontFamily>
+
+    <!-- Logo A "Cub", 32×32 box -->
+    <StreamGeometry x:Key="LogoHead">M16 8C17.27 8 18.43 8.07 19.51 8.2A4.5 4.5 0 1 1 27.13 11.73C28.39 13.31 29 15.39 29 18C29 24.8 24.84 28 16 28C7.16 28 3 24.8 3 18C3 15.39 3.61 13.31 4.87 11.73A4.5 4.5 0 1 1 12.49 8.2C13.57 8.07 14.73 8 16 8Z</StreamGeometry>
+    <StreamGeometry x:Key="LogoPlay">M13.49 12.34L21.96 17.13A1 1 0 0 1 21.96 18.87L13.49 23.66A1 1 0 0 1 12 22.79L12 13.21A1 1 0 0 1 13.49 12.34Z</StreamGeometry>
+
+    <!-- Icons, 24×24 box. Filled: IcPlay, IcPause. The rest are 1.5 px strokes. -->
+    <StreamGeometry x:Key="IcPlay">M7 5.2v13.6a1 1 0 0 0 1.52.85l10.9-6.8a1 1 0 0 0 0-1.7L8.52 4.35A1 1 0 0 0 7 5.2z</StreamGeometry>
+    <StreamGeometry x:Key="IcPause">M7.2 5h1.6a1.2 1.2 0 0 1 1.2 1.2v11.6a1.2 1.2 0 0 1-1.2 1.2H7.2A1.2 1.2 0 0 1 6 17.8V6.2A1.2 1.2 0 0 1 7.2 5z M15.2 5h1.6a1.2 1.2 0 0 1 1.2 1.2v11.6a1.2 1.2 0 0 1-1.2 1.2h-1.6A1.2 1.2 0 0 1 14 17.8V6.2A1.2 1.2 0 0 1 15.2 5z</StreamGeometry>
+    <StreamGeometry x:Key="IcBack">M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8 M3 3v5h5</StreamGeometry>
+    <StreamGeometry x:Key="IcFwd">M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8 M21 3v5h-5</StreamGeometry>
+    <StreamGeometry x:Key="IcVolume">M11 5L6 9H3v6h3l5 4V5z M15.5 8.5a5 5 0 0 1 0 7 M18.5 5.5a9 9 0 0 1 0 13</StreamGeometry>
+    <StreamGeometry x:Key="IcVolumeLow">M11 5L6 9H3v6h3l5 4V5z M15.5 8.5a5 5 0 0 1 0 7</StreamGeometry>
+    <StreamGeometry x:Key="IcMuted">M11 5L6 9H3v6h3l5 4V5z M16 9.5l5 5 M21 9.5l-5 5</StreamGeometry>
+    <StreamGeometry x:Key="IcSubtitles">M6 5h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3z M7 11h3 M13 11h4 M7 15h6 M15 15h2</StreamGeometry>
+    <StreamGeometry x:Key="IcFullscreen">M4 9V5.5A1.5 1.5 0 0 1 5.5 4H9 M15 4h3.5A1.5 1.5 0 0 1 20 5.5V9 M20 15v3.5a1.5 1.5 0 0 1-1.5 1.5H15 M9 20H5.5A1.5 1.5 0 0 1 4 18.5V15</StreamGeometry>
+    <StreamGeometry x:Key="IcExitFullscreen">M9 4v3.5A1.5 1.5 0 0 1 7.5 9H4 M20 9h-3.5A1.5 1.5 0 0 1 15 7.5V4 M15 20v-3.5a1.5 1.5 0 0 1 1.5-1.5H20 M4 15h3.5A1.5 1.5 0 0 1 9 16.5V20</StreamGeometry>
+    <StreamGeometry x:Key="IcCheck">M5 12.5l4.5 4.5L19 7.5</StreamGeometry>
+    <StreamGeometry x:Key="IcPlus">M12 5v14 M5 12h14</StreamGeometry>
+    <StreamGeometry x:Key="IcAlert">M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0z M12 7.5v5.5 M12 16.5h.01</StreamGeometry>
+    <StreamGeometry x:Key="IcDrop">M12 4v11 M7.5 10.5L12 15l4.5-4.5 M4 17v1.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V17</StreamGeometry>
+    <StreamGeometry x:Key="IcFileMissing">M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z M14 3v5h5 M10 12.5l4 4 M14 12.5l-4 4</StreamGeometry>
+    <StreamGeometry x:Key="IcChevronRight">M9 6l6 6-6 6</StreamGeometry>
+    <StreamGeometry x:Key="IcChevronLeft">M15 6l-6 6 6 6</StreamGeometry>
+    <StreamGeometry x:Key="IcChevronDown">M6 9l6 6 6-6</StreamGeometry>
+    <StreamGeometry x:Key="IcClose">M6 6l12 12 M18 6L6 18</StreamGeometry>
+    <StreamGeometry x:Key="IcSliders">M4 7h9 M17 7h3 M4 17h3 M11 17h9 M15 5v4 M9 15v4</StreamGeometry>
+
+    <!-- Windows 11 caption glyphs, 10×10 box, 1 px stroke -->
+    <StreamGeometry x:Key="CapMin">M0 5.5h10</StreamGeometry>
+    <StreamGeometry x:Key="CapMax">M1.5 0.5h7a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z</StreamGeometry>
+    <StreamGeometry x:Key="CapRestore">M1.5 2.5h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1z M2.5 0.5h6a1 1 0 0 1 1 1v6</StreamGeometry>
+    <StreamGeometry x:Key="CapClose">M0.5 0.5l9 9 M9.5 0.5l-9 9</StreamGeometry>
+  </Application.Resources>
+
+  <Application.Styles>
+    <FluentTheme />
+    <StyleInclude Source="avares://BearMinVLC/Styles.axaml" />
+  </Application.Styles>
+</Application>

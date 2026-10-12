@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BearMinVLC – Style and behaviour guide</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0C0B0A}
+a{color:#EDEBE7}a:hover{color:#FFFFFF}
+</style>
+</helmet>
+<div style="width: 1280px; height: 900px; box-sizing: border-box; padding: 44px 56px; background: #0C0B0A; color: #EDEBE7; font-family: 'Geist', system-ui, sans-serif; display: flex; flex-direction: column; gap: 32px">
+  <div style="display: flex; align-items: center; gap: 14px">
+    <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path fill="{{accent}}" d="M16 8C17.27 8 18.43 8.07 19.51 8.2A4.5 4.5 0 1 1 27.13 11.73C28.39 13.31 29 15.39 29 18C29 24.8 24.84 28 16 28C7.16 28 3 24.8 3 18C3 15.39 3.61 13.31 4.87 11.73A4.5 4.5 0 1 1 12.49 8.2C13.57 8.07 14.73 8 16 8Z"></path><path fill="#0C0B0A" d="M13.49 12.34L21.96 17.13A1 1 0 0 1 21.96 18.87L13.49 23.66A1 1 0 0 1 12 22.79L12 13.21A1 1 0 0 1 13.49 12.34Z"></path></svg>
+    <h1 style="margin: 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Style &amp; behaviour</h1>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px">
+    <section style="display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0 0 4px; font-size: 12px; font-weight: 500; color: #A8A29E">Colour</h2>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: #0C0B0A; border: 1px solid rgba(255,255,255,0.14)"></span><span style="font-size: 14px">Ground</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#0C0B0A</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: #1A1917; border: 1px solid rgba(255,255,255,0.08)"></span><span style="font-size: 14px">Surface · dialogs</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#1A1917</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: rgba(26,25,23,0.92); border: 1px solid rgba(255,255,255,0.08)"></span><span style="font-size: 14px">Overlay · menus, pills</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#1A1917 92%</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: #EDEBE7"></span><span style="font-size: 14px">Text</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#EDEBE7</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: #A8A29E"></span><span style="font-size: 14px">Muted · on ground</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#A8A29E</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: #CFCAC4"></span><span style="font-size: 14px">Muted · on video</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">#CFCAC4</span></div>
+      <div style="display: flex; align-items: center; gap: 12px"><span style="width: 32px; height: 32px; border-radius: 6px; background: {{accent}}"></span><span style="font-size: 14px">Accent · progress, selection, main action</span><span style="margin-left: auto; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A29E">{{accent}}</span></div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font-size: 12px; font-weight: 500; color: #A8A29E">Type · Geist (tabular figures for time)</h2>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Drop a video here</span><span style="font-size: 12px; color: #A8A29E">Screen heading · 28 / 600</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 500">Open file</span><span style="font-size: 12px; color: #A8A29E">Buttons, dialog titles · 15 / 500</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Night drive.mp4 · English · 5.1</span><span style="font-size: 12px; color: #A8A29E">Titles, menu items · 14 / 400–500</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums">12:48 / 44:10</span><span style="font-size: 12px; color: #A8A29E">Timecodes · 13 / 500, tabular</span></div>
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 500">Recent · Subtitles</span><span style="font-size: 12px; color: #A8A29E">Labels, meta · 12 / 400–500</span></div>
+    </section>
+
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <h2 style="margin: 0; font-size: 12px; font-weight: 500; color: #A8A29E">Shape</h2>
+      <div style="display: flex; gap: 12px; align-items: flex-end">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 36px; height: 36px; border-radius: 6px; background: rgba(255,255,255,0.1)"></span><span style="font-size: 12px; color: #A8A29E">6</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 44px; height: 44px; border-radius: 10px; background: rgba(255,255,255,0.1)"></span><span style="font-size: 12px; color: #A8A29E">10</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 56px; height: 44px; border-radius: 14px; background: rgba(255,255,255,0.1)"></span><span style="font-size: 12px; color: #A8A29E">14</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 64px; height: 44px; border-radius: 20px; background: rgba(255,255,255,0.1)"></span><span style="font-size: 12px; color: #A8A29E">20</span></div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 72px; height: 44px; border-radius: 999px; background: {{accent}}"></span><span style="font-size: 12px; color: #A8A29E">pill</span></div>
+      </div>
+      <p style="margin: 0; font-size: 14px; line-height: 1.6">Rows 6 · buttons 10 · menus 14 · dialogs 20 · actions are pills. Buttons are 44 px; icons 24 px at a 1.5 px stroke. Sliders 4 px (seek grows to 6 px on hover). One 20 px edge everywhere. Window buttons follow Windows 11: square, 46 × 32, red on close hover.</p>
+    </section>
+  </div>
+
+  <section style="display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08)">
+    <h2 style="margin: 0; font-size: 12px; font-weight: 500; color: #A8A29E">Behaviour</h2>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 48px; font-size: 14px; line-height: 1.5">
+      <p style="margin: 0"><strong style="font-weight: 500">Controls fade</strong> after 2.5 s still (200 ms), cursor too; 0.5 s after the pointer leaves. They stay while paused, a menu is open, the pointer is on them, or at end / error / loading.</p>
+      <p style="margin: 0"><strong style="font-weight: 500">Keys don't wake the controls</strong> — they show the small top pill for 1 s instead. Tab does bring the controls back.</p>
+      <p style="margin: 0"><strong style="font-weight: 500">Mouse:</strong> click video = pause (brief centre flash) · double-click = fullscreen · wheel = volume ±5% (seek ±5 s over the bar) · drag = move window · right-click = more.</p>
+      <p style="margin: 0"><strong style="font-weight: 500">Resume</strong> automatically with a 5 s “Start over” pill. Positions save between 30 s and 95%, with the chosen subtitle and audio tracks.</p>
+      <p style="margin: 0"><strong style="font-weight: 500">One window:</strong> “Open with” replaces the current video. Dropping a subtitle adds it; dropping a video replaces it.</p>
+      <p style="margin: 0"><strong style="font-weight: 500">Errors and loading</strong> show in the window, never as pop-ups. A spinner appears only after 0.4 s. The screen stays awake while playing; media keys work.</p>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#F5A524","options":["#F5A524","#FF7A1A","#7DD3FC","#EDEBE7"]},"$preview":{"width":1280,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#F5A524' };
+  }
+}
+</script>
+</body>
+</html>

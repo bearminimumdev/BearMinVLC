@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- PlayerView is only ever created from code with its dependencies. -->
+    <NoWarn>$(NoWarn);AVLN3001</NoWarn>
+    <AssemblyName>BearMinVLC</AssemblyName>
+    <RootNamespace>BearMinVLC</RootNamespace>
+    <Version>0.2.0</Version>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\BearMinVLC.ico</ApplicationIcon>
+    <Product>BearMinVLC</Product>
+    <Description>A sleek, minimal video player built on VLC's playback engine.</Description>
+    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+
+    <!-- 64-bit Windows only: keeps libVLC to ~108 MB instead of ~317 MB for all three architectures. -->
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>false</SelfContained>
+    <VlcWindowsX86Enabled>false</VlcWindowsX86Enabled>
+    <VlcWindowsArm64Enabled>false</VlcWindowsArm64Enabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets\**" Exclude="Assets\**\*.txt" />
+    <None Include="Assets\Fonts\OFL-Geist.txt" CopyToOutputDirectory="PreserveNewest" Link="licenses\OFL-Geist.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Pinned on purpose: LibVLCSharp.Avalonia's overlay window breaks across Avalonia upgrades. -->
+    <PackageReference Include="Avalonia" Version="12.1.4" />
+    <PackageReference Include="Avalonia.Desktop" Version="12.1.4" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.4" />
+    <PackageReference Include="LibVLCSharp.Avalonia" Version="3.10.1" />
+    <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.24" />
+    <!-- Installer, uninstaller and auto-updates from GitHub Releases -->
+    <PackageReference Include="Velopack" Version="1.2.161" />
+  </ItemGroup>
+
+  <!-- SkiaSharp/HarfBuzz ship ~100 MB of native .pdb files; nobody running the player needs them. -->
+  <Target Name="DropPdbsFromPublish" AfterTargets="ComputeResolvedFilesToPublishList">
+    <ItemGroup>
+      <ResolvedFileToPublish Remove="@(ResolvedFileToPublish)" Condition="'%(Extension)' == '.pdb'" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Debug-only screenshot harness (DevShots.cs) used to check the UI without a person watching. -->
+  <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <PackageReference Include="System.Drawing.Common" Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)' != 'Debug'">
+    <Compile Remove="DevShots.cs" />
+  </ItemGroup>
+
+</Project>

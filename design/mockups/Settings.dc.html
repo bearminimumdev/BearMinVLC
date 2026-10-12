@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BearMinVLC – Settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#000}
+a{color:#EDEBE7}a:hover{color:#FFFFFF}
+</style>
+</helmet>
+<div style="position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: #000; color: #EDEBE7; font-family: 'Geist', system-ui, sans-serif">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, #0E131D 0%, #172030 55%, #241C17 100%)">
+    <div style="position: absolute; left: 12%; top: 58%; width: 90px; height: 90px; border-radius: 50%; background: rgba(245,165,36,0.35); filter: blur(14px)"></div>
+    <div style="position: absolute; left: 38%; top: 54%; width: 130px; height: 130px; border-radius: 50%; background: rgba(255,90,60,0.22); filter: blur(22px)"></div>
+    <div style="position: absolute; left: 63%; top: 52%; width: 70px; height: 70px; border-radius: 50%; background: rgba(245,165,36,0.3); filter: blur(10px)"></div>
+    <div style="position: absolute; left: 78%; top: 59%; width: 110px; height: 110px; border-radius: 50%; background: rgba(120,170,255,0.18); filter: blur(18px)"></div>
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(0,0,0,0.55)"></div>
+
+  <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 24px">
+    <section role="dialog" aria-labelledby="settings-h" style="width: 100%; max-width: 880px; box-sizing: border-box; padding: 24px 28px 20px; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; background: rgba(26,25,23,0.96); box-shadow: 0 24px 60px rgba(0,0,0,0.55); display: flex; flex-direction: column">
+      <div style="display: flex; align-items: center; justify-content: space-between">
+        <h2 id="settings-h" style="margin: 0; font-size: 15px; font-weight: 500">Settings</h2>
+        <button aria-label="Close settings" style="width: 36px; height: 36px; border: 0; border-radius: 10px; background: transparent; color: #A8A29E; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px">
+        <div style="display: flex; flex-direction: column">
+          <h3 style="margin: 14px 0 2px; font-size: 12px; font-weight: 500; color: #A8A29E">Playback</h3>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Resume where you left off</span><span style="font-size: 12px; color: #A8A29E">From 30 s in to 95% through.</span></div>
+            <span role="switch" aria-checked="true" aria-label="Resume where you left off" style="width: 40px; height: 20px; border-radius: 999px; background: {{accent}}; position: relative; flex-shrink: 0"><span style="position: absolute; right: 4px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #0C0B0A"></span></span>
+          </div>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Skip length</span><span style="font-size: 12px; color: #A8A29E">Skip buttons and ← → keys.</span></div>
+            <div role="radiogroup" aria-label="Skip length" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: #0C0B0A">
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">5 s</button>
+              <button role="radio" aria-checked="true" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: #2E2C29; color: #EDEBE7; font-family: inherit; font-size: 13px; font-weight: 500">10 s</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">15 s</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">30 s</button>
+            </div>
+          </div>
+
+          <h3 style="margin: 14px 0 2px; font-size: 12px; font-weight: 500; color: #A8A29E">Video</h3>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Hardware decoding</span><span style="font-size: 12px; color: #A8A29E">Turn off if a video stutters or shows glitches.</span></div>
+            <span role="switch" aria-checked="true" aria-label="Hardware decoding" style="width: 40px; height: 20px; border-radius: 999px; background: {{accent}}; position: relative; flex-shrink: 0"><span style="position: absolute; right: 4px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #0C0B0A"></span></span>
+          </div>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Deinterlacing</span><span style="font-size: 12px; color: #A8A29E">For old TV recordings with comb-like lines.</span></div>
+            <div role="radiogroup" aria-label="Deinterlacing" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: #0C0B0A">
+              <button role="radio" aria-checked="true" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: #2E2C29; color: #EDEBE7; font-family: inherit; font-size: 13px; font-weight: 500">Auto</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">On</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">Off</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column">
+          <h3 style="margin: 14px 0 2px; font-size: 12px; font-weight: 500; color: #A8A29E">Subtitles</h3>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <span style="font-size: 14px">Size</span>
+            <div role="radiogroup" aria-label="Subtitle size" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: #0C0B0A">
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">Small</button>
+              <button role="radio" aria-checked="true" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: #2E2C29; color: #EDEBE7; font-family: inherit; font-size: 13px; font-weight: 500">Normal</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">Large</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">Larger</button>
+            </div>
+          </div>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 14px">Position</span><span style="font-size: 12px; color: #A8A29E">Keep them clear of the controls.</span></div>
+            <div role="radiogroup" aria-label="Subtitle position" style="display: flex; gap: 2px; padding: 3px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: #0C0B0A">
+              <button role="radio" aria-checked="true" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: #2E2C29; color: #EDEBE7; font-family: inherit; font-size: 13px; font-weight: 500">Bottom</button>
+              <button role="radio" aria-checked="false" style="height: 30px; padding: 0 11px; border: 0; border-radius: 7px; background: transparent; color: #A8A29E; font-family: inherit; font-size: 13px; font-weight: 500">Above controls</button>
+            </div>
+          </div>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <label for="sub-lang" style="font-size: 14px">Preferred language</label>
+            <button id="sub-lang" aria-haspopup="listbox" style="width: 220px; height: 36px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: #0C0B0A; color: #EDEBE7; font-family: inherit; font-size: 13px; display: flex; align-items: center; justify-content: space-between">Automatic<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          </div>
+
+          <h3 style="margin: 14px 0 2px; font-size: 12px; font-weight: 500; color: #A8A29E">Audio</h3>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <label for="audio-lang" style="font-size: 14px">Preferred language</label>
+            <button id="audio-lang" aria-haspopup="listbox" style="width: 220px; height: 36px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: #0C0B0A; color: #EDEBE7; font-family: inherit; font-size: 13px; display: flex; align-items: center; justify-content: space-between">Automatic<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          </div>
+          <div style="min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 16px">
+            <label for="audio-dev" style="font-size: 14px">Output device</label>
+            <button id="audio-dev" aria-haspopup="listbox" style="width: 220px; height: 36px; padding: 0 12px; border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; background: #0C0B0A; color: #EDEBE7; font-family: inherit; font-size: 13px; display: flex; align-items: center; justify-content: space-between">Windows default<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin: 14px 0 0; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; line-height: 1.5; color: #A8A29E">Subtitle size and position, hardware decoding and deinterlacing restart the current video for a moment. Preferred languages apply to the next video you open.</p>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#F5A524","options":["#F5A524","#FF7A1A","#7DD3FC","#EDEBE7"]},"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#F5A524' };
+  }
+}
+</script>
+</body>
+</html>

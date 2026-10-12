@@ -1,0 +1,27 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-10-12T12:00:00Z" },
+  "title": "BearMinVLC Design",
+  "launch": { "view": "canvas" },
+  "pages": [],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1280, "h": 720, "title": "1 · Start", "expand": "fill" },
+    "Logo.dc.html": { "x": 1360, "y": 0, "w": 1280, "h": 720, "title": "Logo options — pick one" },
+    "Playing.dc.html": { "x": 0, "y": 840, "w": 1280, "h": 720, "title": "2 · Playing — just resumed, pointer on seek bar", "expand": "fill" },
+    "Tracks.dc.html": { "x": 1360, "y": 840, "w": 1280, "h": 720, "title": "3 · Subtitles & audio menu", "expand": "fill" },
+    "Hidden.dc.html": { "x": 0, "y": 1680, "w": 1280, "h": 720, "title": "4 · Controls hidden — volume key pressed", "expand": "fill" },
+    "Paused.dc.html": { "x": 1360, "y": 1680, "w": 1280, "h": 720, "title": "5 · Paused — right-click menu", "expand": "fill" },
+    "DragOver.dc.html": { "x": 0, "y": 2520, "w": 1280, "h": 720, "title": "6 · Dragging a file onto a playing video", "expand": "fill" },
+    "End.dc.html": { "x": 1360, "y": 2520, "w": 1280, "h": 720, "title": "7 · End of video", "expand": "fill" },
+    "Error.dc.html": { "x": 0, "y": 3360, "w": 1280, "h": 720, "title": "8 · Can't play this file", "expand": "fill" },
+    "OpenUrl.dc.html": { "x": 1360, "y": 3360, "w": 1280, "h": 720, "title": "9 · Open URL", "expand": "fill" },
+    "Shortcuts.dc.html": { "x": 0, "y": 4200, "w": 1280, "h": 720, "title": "10 · Shortcut sheet (press ?)", "expand": "fill" },
+    "System.dc.html": { "x": 1360, "y": 4200, "w": 1280, "h": 900, "title": "Style & behaviour guide" },
+    "Settings.dc.html": { "x": 0, "y": 5220, "w": 1280, "h": 720, "title": "11 · Settings (Ctrl , or right-click)", "expand": "fill" }
+  },
+  "order": ["Main.dc.html", "Logo.dc.html", "Playing.dc.html", "Tracks.dc.html", "Hidden.dc.html", "Paused.dc.html", "DragOver.dc.html", "End.dc.html", "Error.dc.html", "OpenUrl.dc.html", "Shortcuts.dc.html", "System.dc.html", "Settings.dc.html"],
+  "notes": {
+    "heading": { "x": 0, "y": -300, "text": "BearMinVLC — v1 screens · revision 3 (as built)", "kind": "title1", "maxW": 2640 }
+  },
+  "designSystems": []
+}

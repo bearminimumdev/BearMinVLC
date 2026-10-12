@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BearMinVLC – Drop a file onto a playing video</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#000}
+a{color:#EDEBE7}a:hover{color:#FFFFFF}
+</style>
+</helmet>
+<div style="position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: #000; color: #EDEBE7; font-family: 'Geist', system-ui, sans-serif">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, #0E131D 0%, #172030 55%, #241C17 100%)">
+    <div style="position: absolute; left: 12%; top: 58%; width: 90px; height: 90px; border-radius: 50%; background: rgba(245,165,36,0.35); filter: blur(14px)"></div>
+    <div style="position: absolute; left: 22%; top: 63%; width: 46px; height: 46px; border-radius: 50%; background: rgba(255,214,150,0.5); filter: blur(6px)"></div>
+    <div style="position: absolute; left: 38%; top: 54%; width: 130px; height: 130px; border-radius: 50%; background: rgba(255,90,60,0.22); filter: blur(22px)"></div>
+    <div style="position: absolute; left: 55%; top: 61%; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,240,220,0.55); filter: blur(4px)"></div>
+    <div style="position: absolute; left: 63%; top: 52%; width: 70px; height: 70px; border-radius: 50%; background: rgba(245,165,36,0.3); filter: blur(10px)"></div>
+    <div style="position: absolute; left: 78%; top: 59%; width: 110px; height: 110px; border-radius: 50%; background: rgba(120,170,255,0.18); filter: blur(18px)"></div>
+    <div style="position: absolute; left: 87%; top: 57%; width: 28px; height: 28px; border-radius: 50%; background: rgba(255,230,200,0.5); filter: blur(3px)"></div>
+  </div>
+
+  <div style="position: absolute; inset: 0; background: rgba(12,11,10,0.72); padding: 16px; box-sizing: border-box; display: flex">
+    <div style="flex: 1; border-radius: 20px; border: 1.5px solid rgba(245,165,36,0.6); background: rgba(245,165,36,0.06); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; text-align: center; padding: 24px">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"></path><path d="M7.5 10.5L12 15l4.5-4.5"></path><path d="M4 17v1.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5V17"></path></svg>
+      <h1 style="margin: 4px 0 0; font-size: 28px; font-weight: 600; letter-spacing: -0.02em">Drop to play</h1>
+      <p style="margin: 0; max-width: 420px; font-size: 15px; line-height: 1.5; color: #CFCAC4">Replaces Night drive.mp4 — your place in it is saved. Subtitle files are added to the current video instead.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#F5A524","options":["#F5A524","#FF7A1A","#7DD3FC","#EDEBE7"]},"$preview":{"width":1280,"height":720}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#F5A524' };
+  }
+}
+</script>
+</body>
+</html>
